@@ -19,8 +19,8 @@ export class PaymentDetailFormComponent {
     .subscribe({
       next:res=>{
        this.service.list=res as PaymentDetails[]
-       form.resetForm(form)
-       this.toastr.success('')
+       this.service.resetForm(form)
+       this.toastr.success('Inserted successfully','Payment Detail Register')
       },
       error:err=>{console.log(err)}
     })
