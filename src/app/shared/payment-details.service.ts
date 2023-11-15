@@ -10,6 +10,7 @@ export class PaymentDetailsService {
   url:string=environment.apiBaseUrl+'/PaymentDetails'
   list :PaymentDetails[] = [];
   formData : PaymentDetails=new PaymentDetails()
+  formSubmitted:boolean=false;
   constructor(private http:HttpClient) { }
 
   refreshList(){
@@ -26,8 +27,17 @@ export class PaymentDetailsService {
     return this.http.post(this.url, this.formData)
   }
 
+  putPaymentDetail(){
+    return this.http.put(this.url+'/'+this.formData.paymentDetailId, this.formData)
+  }
+
+  deletePaymentDetail(id:number){
+    return this.http.delete(this.url+'/'+id)
+  }
+
   resetForm(form:NgForm){
     form.form.reset()
     this.formData=new PaymentDetails()
+    this.formSubmitted=false
   }
 }
