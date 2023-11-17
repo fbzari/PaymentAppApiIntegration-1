@@ -17,7 +17,7 @@ export class PaymentDetailsComponent implements OnInit {
   }
 
   populateForm(selectedRecord:PaymentDetails){
-    this.service.formData =Object.assign({},selectedRecord) ;
+    this.service.formData = Object.assign({},selectedRecord) ;
   }
 
   onDelete(id:number){
